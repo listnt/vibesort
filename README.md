@@ -48,7 +48,7 @@ func main() {
 
 	numbers := []int64{42, 7, 88, 15, 63}
 
-	sorted, err := v.vibesort(numbers)
+	sorted, err := v.Vibesort(numbers)
 	if err != nil {
 		log.Fatal(err)
 	}

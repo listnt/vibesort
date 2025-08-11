@@ -33,7 +33,7 @@ func NewVibesort(key string) *vibesort {
 	return &vibesort{key: key}
 }
 
-func (v *vibesort) vibesort(nums []int64) ([]int64, error) {
+func (v *vibesort) Vibesort(nums []int64) ([]int64, error) {
 	client := openai.NewClient(
 		option.WithAPIKey(v.key),
 	)
