@@ -1,93 +1,91 @@
-# Vibesort
+# vibes 😎✨
 
-**Vibesort** is a fun Go package that uses OpenAI's GPT-5 model to sort integers — not through conventional algorithms, but by *asking the AI nicely* to put them in order.
+Are you tired of being an efficient drone, or maybe you just want to burn through your AI funding?
 
-Think of it as bubble sort with vibes.
+**Behold: this package will help you with that.**
+
+Gone are the days of excuses like *“our code still compiles”* or *“the machine is currently occupied by the physics department.”*
+
+No longer must you justify your slowness, because this package provides the ultimate excuse:
+
+> **“Our AI is still calculating.”**
+
+This package is the perfect response to every insufferable founder or AI enthusiast.  
+Using it is as easy as writing Go itself.
+
+Powered by the latest innovation in **vibe coding**, this package leverages the OpenAI API to calculate even the most basic operations.
 
 ---
 
-## ✨ Features
-- Sorts integers in ascending order using GPT-5.
-- Simple API: pass in a slice of `int64` and get a sorted slice back.
-- Demonstrates how to integrate OpenAI's API into a Go project.
-
----
-
-## 📦 Installation
-
-Make sure you have Go installed, then:
+## ⚙️ Installation
 
 ```bash
-go get github.com/openai/openai-go/v2
-```
-Clone or copy this package into your project.
-
-## 🔑 Setup
-You’ll need an OpenAI API key.
-Get one from: https://platform.openai.com/
-
-Set it as an environment variable:
-
-```bash
-export OPENAI_API_KEY="your-secret-key"
+go get github.com/listnt/vibes
 ```
 
-## 🛠 Usage
-Example:
-
-```go 
-package main
-
-import (
-	"fmt"
-	"log"
-)
+## 🪄 Usage
+First, initialize the vibes with your OpenAI API key:
+```go
+import "github.com/yourname/vibes"
 
 func main() {
-	v := NewVibesort("your-api-key")
-
-	numbers := []int64{42, 7, 88, 15, 63}
-
-	sorted, err := v.Vibesort(numbers)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(sorted) // [7 15 42 63 88]
+    vibes.InitVibes("your-api-key")
 }
 ```
 
-## 🧪 Testing
-The included test (vibesort_test.go) checks that the sorting works as expected.
-
-Run:
-
-```bash
-go test -v
+## 🔡 Strings
+Because who needs strings.ToLower when you have GPT-5?
+```go
+res, err := vibes.ToLower("HELLO WORLD")
+fmt.Println(res) // "hello world"
 ```
-Example output:
-
-```
-=== RUN   TestInts
-[7 15 42 63 88] <nil>
---- PASS: TestInts (0.45s)
-PASS
-ok  	vibesort	0.48s
+Or uppercase
+```go
+res, err := vibes.ToUpper("wow such vibes")
+fmt.Println(res) // "WOW SUCH VIBES"
 ```
 
-## ⚙️ How It Works
-The package sends your unsorted list of integers to GPT-5.
+## ➕ Math
 
-GPT-5 responds with a sorted list in the format [1 2 3 ...].
+Basic arithmetic, but make it AI-powered.
+```go
+sum, _ := vibes.Add(3, 5)       // 8
+diff, _ := vibes.Sub(10, 4)     // 6
+prod, _ := vibes.Mult(6, 7)     // 42
+quot, _ := vibes.Div(20, 5)     // 4
+```
 
-The package parses this response back into []int64.
+## 🧹 Sorting
+Sorting arrays is so passé. Let vibes do it.
+```go
+arr := []int64{42, 7, 88, 15, 63}
+sorted, _ := vibes.Sort(arr)
+fmt.Println(sorted) // [7 15 42 63 88]
+```
 
-Note: This is not the fastest sorting algorithm — network calls are involved — but it is the most polite.
+## 🌀 Fibonacci (stress test for vibes)
 
-## ⚠️ Caveats
-Requires internet access and a valid OpenAI API key.
+Why compute Fibonacci locally when you can pay for inference?
+```go
+func TestFibonacci(t *testing.T) {
+    vibes.InitVibes("your-key-here")
 
-Response parsing assumes GPT strictly follows the [1 2 3 ...] format.
+    fibNumbers := []int64{1, 1}
+    for i := 0; i < 29-2; i++ {
+        newFib, err := vibes.Add(fibNumbers[len(fibNumbers)-1], fibNumbers[len(fibNumbers)-2])
+        if err != nil {
+            t.Fatal(err)
+        }
+        fibNumbers = append(fibNumbers, newFib)
+    }
 
-API usage may incur costs depending on your OpenAI plan.
+    if fibNumbers[len(fibNumbers)-1] != 514229 {
+        t.Fatal("failed to calc fib sequence")
+    }
+}
+```
 
+## ⚠️ Disclaimer
+
+This package is intentionally inefficient.
+If you actually use this in production, your CFO will personally hunt you down.

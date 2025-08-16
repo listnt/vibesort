@@ -1,4 +1,4 @@
-module vibesort
+module github.com/listnt/vibes
 
 go 1.24.3
 
